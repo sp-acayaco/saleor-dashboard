@@ -1,6 +1,6 @@
 {
   "name": "saleor-dashboard",
-  "version": "3.0.0-a.0",
+  "version": "3.0.0-a.5",
   "main": "src/index.tsx",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "npm": ">=6.11.0"
   },
   "dependencies": {
-    "@editorjs/editorjs": "^2.19.0",
+    "@editorjs/editorjs": "^2.19.1",
     "@editorjs/header": "^2.6.1",
     "@editorjs/image": "^2.6.0",
     "@editorjs/list": "^1.6.1",

@@ -25,6 +25,9 @@ export const commonMessages = defineMessages({
   description: {
     defaultMessage: "Description"
   },
+  descriptionOptional: {
+    defaultMessage: "Description (optional)"
+  },
   discounts: {
     defaultMessage: "Discounts"
   },
@@ -45,6 +48,9 @@ export const commonMessages = defineMessages({
   },
   generalInformations: {
     defaultMessage: "General Information"
+  },
+  insufficientPermissions: {
+    defaultMessage: "Insufficient permissions"
   },
   lastName: {
     defaultMessage: "Last Name"
@@ -85,6 +91,9 @@ export const commonMessages = defineMessages({
   },
   summary: {
     defaultMessage: "Summary"
+  },
+  unauthorizedDashboardAccess: {
+    defaultMessage: "Only staff users can access the dashboard"
   },
   uploadImage: {
     defaultMessage: "Upload image",

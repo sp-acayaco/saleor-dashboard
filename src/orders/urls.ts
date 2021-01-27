@@ -6,6 +6,7 @@ import {
   BulkAction,
   Dialog,
   Filters,
+  FiltersAsDictWithMultipleValues,
   FiltersWithMultipleValues,
   Pagination,
   SingleAction,
@@ -25,11 +26,17 @@ export enum OrderListUrlFiltersEnum {
   payment = "payment",
   query = "query"
 }
-export enum OrderListUrlFiltersWithMultipleValuesEnum {
+export enum OrderListUrlFiltersWithMultipleValues {
   status = "status"
 }
+
+export enum OrderListUrlFiltersDictWithMultipleValues {
+  channel = "channel"
+}
+
 export type OrderListUrlFilters = Filters<OrderListUrlFiltersEnum> &
-  FiltersWithMultipleValues<OrderListUrlFiltersWithMultipleValuesEnum>;
+  FiltersWithMultipleValues<OrderListUrlFiltersWithMultipleValues> &
+  FiltersAsDictWithMultipleValues<OrderListUrlFiltersDictWithMultipleValues>;
 export type OrderListUrlDialog = "cancel" | CreateOrderDialog | TabActionDialog;
 export enum OrderListUrlSortField {
   number = "number",
@@ -92,6 +99,7 @@ export const orderDraftListUrl = (
 };
 
 export const orderPath = (id: string) => urlJoin(orderSectionUrl, id);
+
 export type OrderUrlDialog =
   | "add-order-line"
   | "cancel"
@@ -105,17 +113,26 @@ export type OrderUrlDialog =
   | "mark-paid"
   | "void"
   | "invoice-send";
+
 export type OrderUrlQueryParams = Dialog<OrderUrlDialog> & SingleAction;
+
 export const orderUrl = (id: string, params?: OrderUrlQueryParams) =>
   orderPath(encodeURIComponent(id)) + "?" + stringifyQs(params);
 
 export const orderFulfillPath = (id: string) =>
   urlJoin(orderPath(id), "fulfill");
+
+export const orderReturnPath = (id: string) => urlJoin(orderPath(id), "return");
+
 export const orderFulfillUrl = (id: string) =>
   orderFulfillPath(encodeURIComponent(id));
 
 export const orderSettingsPath = urlJoin(orderSectionUrl, "settings");
 
 export const orderRefundPath = (id: string) => urlJoin(orderPath(id), "refund");
+
 export const orderRefundUrl = (id: string) =>
   orderRefundPath(encodeURIComponent(id));
+
+export const orderReturnUrl = (id: string) =>
+  orderReturnPath(encodeURIComponent(id));
